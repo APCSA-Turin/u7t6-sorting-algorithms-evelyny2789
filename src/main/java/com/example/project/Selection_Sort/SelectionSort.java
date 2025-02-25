@@ -8,36 +8,35 @@ public class SelectionSort {
 
     // PART A. implementing selection sort
     public static int[] selectionSort(int[] elements) {
-        for (int j = 0; j < elements.length - 1; j++) {
-            int minIndex = j;
-            for (int k = j + 1; k < elements.length; k++) {
-                if (elements[k] < elements[minIndex]) {
-                    minIndex = k;
+        for (int i = 0; i < elements.length - 1; i++){
+            int min = i; 
+            for (int j = i + 1; j < elements.length; j++){
+                if (elements[j] < elements[min]){
+                    min = j; 
                 }
             }
-            int temp = elements[j];
-            elements[j] = elements[minIndex];
-            elements[minIndex] = temp;
+            int notMin = elements[i]; 
+            elements[i] = elements[min]; 
+            elements[min] = notMin; 
         }
-
-        return elements;
+        return elements; 
     }
 
 
     // PART B. sorting a 1000-word list
     public static ArrayList<String> selectionSortWordList(ArrayList<String> words) {
-        for (int j = 0; j < words.size() - 1; j++) {
-            int minIndex = j;
-            for (int k = j + 1; k < words.size(); k++) {
-                if (words.get(k).compareTo(words.get(minIndex)) < 0) {
-                    minIndex = k;
+        for (int i = 0; i < words.size() - 1; i++){
+            int min = i; 
+            for (int j = i + 1; j < words.size(); j++){
+                if (words.get(j).compareTo(words.get(min)) < 0){
+                    min = j; 
                 }
             }
-            String temp = words.get(j);
-            words.set(j, words.get(minIndex));
-            words.set(minIndex, temp);
+            String notMin = words.get(i); 
+            words.set(i, words.get(min));
+            words.set(min, notMin);
         }
-        return words;
+        return words; 
     }
 
     //call this method to load 1000 words into list. Use it to test Part B
